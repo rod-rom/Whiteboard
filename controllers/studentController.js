@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken');
 
 const student_register = (req,res)=>{
     const student = new Student({
-        name:req.body.email,
-        email:req.body.password
+        email:req.body.email,
+        password:req.body.password
     });
     student.save()
         .then((student)=>{res.status(200); res.json({message:'Register successful'})})
