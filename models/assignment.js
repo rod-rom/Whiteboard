@@ -24,10 +24,3 @@ const assignmentSchema = new Schema({
 
 const Assignment = mongoose.model('Assignment',assignmentSchema);
 module.exports = Assignment;
-
-function totalAssignments(){
-
-}
-function totalGrade(){
-
-}
