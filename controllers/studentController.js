@@ -2,6 +2,11 @@ const Student = require('../models/student');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+const student_get = (req,res)=>{
+    Student.find()
+        .then((assignment)=>res.status(200).send(assignment))
+        .catch((err)=>res.status(400).send(err))
+}
 const student_login = (req,res)=>{
     var email = req.body.email
     var password = req.body.password
@@ -46,6 +51,7 @@ const student_test  = (req,res)=>{
 }
 
 module.exports = {
+    student_get,
     student_login,
     student_test
 }
