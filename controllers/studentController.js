@@ -2,26 +2,6 @@ const Student = require('../models/student');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const student_register = (req,res)=>{
-    const student = new Student({
-        email:req.body.email,
-        password:req.body.password
-    });
-    student.save()
-        .then((student)=>{return res.status(200).json({message:'Register successful',student:student})})
-        .catch((err)=>{return res.status(400).json({message: "Could not register student"})})
-}
-// const student_register = (req,res)=>{
-//     const student = new Student({
-//         email:req.body.email,
-//         password:req.body.password
-//     });
-//     student.save()
-//         .then((student)=>{res.status(200); res.json({message:'Register successful'})})
-//         .catch((err)=>{res.status(400).send("Could not register student")})
-   
-// }
-
 const student_login = (req,res)=>{
     var email = req.body.email
     var password = req.body.password
@@ -46,24 +26,26 @@ const student_login = (req,res)=>{
             }
         })
 }
-
-const student_delete = (req,res)=>{
-    var email = req.params.email
-    Student.findOneAndDelete({$or:[{email:email}]})
-        .then((student)=>{res.status(200)})
-        .catch((err)=>{res.status(400); res.json({message:err})})
-}
-
-const student_grade = (req,res)=>{
-    const email = req.body.email;
-    Student.find({$or:[{email:email}]})
-        .then((student)=>{res.send(JSON.stringify(student.grade))})
-        .catch((err)=>{res.status(400);res.json({message: err})})
+const student_test  = (req,res)=>{
+    const student = new Student({
+        email: "test@gmail.com",
+        password: "123",
+        totalGrade: 84,
+        courses: [
+            "60962360c38da04368d575c3",
+            "60962360c38da04368d575c2"
+        ]
+    });
+    student.save()
+        .then((result)=>{
+            res.send(result)
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
 }
 
 module.exports = {
-    student_register,
     student_login,
-    student_delete,
-    student_grade
+    student_test
 }

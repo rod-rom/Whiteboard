@@ -1,18 +1,11 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
 const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
-    name: {
-        type:String,
-        required:false
-    },
     email:{
         type:String,
         required:true,
-        unique:true,
-        lowercase:true,
-        validate:(value)=>{return validator.isEmail(value)}
+        unique:true
     },
     password:{
         type:String,
@@ -20,9 +13,12 @@ const studentSchema = new Schema({
     },
     totalGrade:{
         type:Number,
-        required:false,
         default:0
     },
+    courses:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Course'
+    }],
 },  {timestamps:true});
 
 const Student = mongoose.model('Student',studentSchema);

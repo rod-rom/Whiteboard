@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const studentRoutes = require('./routes/studentRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
 const assignmentRoutes = require('./routes/assignmentRoutes');
-
+const courseRoutes = require('./routes/courseRoutes');
 
 //express services
 const app = express();
@@ -21,7 +21,7 @@ mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true})
 app.use('/student',studentRoutes);
 app.use('/teacher',teacherRoutes);
 app.use('/assignment',assignmentRoutes);
-
+app.use('/course',courseRoutes);
 
 
 
