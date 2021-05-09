@@ -31,27 +31,8 @@ const student_login = (req,res)=>{
             }
         })
 }
-const student_test  = (req,res)=>{
-    const student = new Student({
-        email: "test@gmail.com",
-        password: "123",
-        totalGrade: 84,
-        courses: [
-            "60962360c38da04368d575c3",
-            "60962360c38da04368d575c2"
-        ]
-    });
-    student.save()
-        .then((result)=>{
-            res.send(result)
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-}
 
 module.exports = {
     student_get,
-    student_login,
-    student_test
+    student_login
 }

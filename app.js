@@ -4,6 +4,7 @@ const studentRoutes = require('./routes/studentRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
 const assignmentRoutes = require('./routes/assignmentRoutes');
 const courseRoutes = require('./routes/courseRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
 
 //express services
 const app = express();
@@ -22,6 +23,7 @@ app.use('/student',studentRoutes);
 app.use('/teacher',teacherRoutes);
 app.use('/assignment',assignmentRoutes);
 app.use('/course',courseRoutes);
+app.use('/notification',notificationRoutes);
 
 
 

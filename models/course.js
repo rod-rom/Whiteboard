@@ -8,6 +8,10 @@ const courseSchema = new Schema({
     courseNumber:{
         type:Number,
     },
+    assignments:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Assignment'
+    }],
 },  {timestamps:true});
 
 const Course = mongoose.model('Course',courseSchema);
