@@ -28,6 +28,9 @@ const assignmentSchema = new Schema({
     student:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Student'
+    },
+    submission:{
+        type:String
     }
 },  {timestamps:true});
 
