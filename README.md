@@ -1,0 +1,2 @@
+# Whiteboard
+Whiteboard is a learning management application. It allows the teachers to post announcements, assignments, attendance, exams, and various resources. Teachers can assign grades and check for plagiarism of assignments and exams. On the other hand, students can use the grading dashboard to track their performance throughout the course, view resources that the professor submits, and submit assignments and exams through the navigation portal. 
